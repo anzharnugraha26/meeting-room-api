@@ -4,7 +4,7 @@ exports.getAllBookings = async () => {
   return await supabase
     .from('bookings')
     .select('*, rooms(name, location)')
-    .order('start_time')
+    .order('created_at', { ascending: false }) // terbaru di atas
 }
 
 exports.createBooking = async (booking) => {
